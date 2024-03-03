@@ -1,11 +1,16 @@
 import './App.css';
 import { Button } from './components/Button'
-import { AppContent } from "./components/AppContent";
+import { AppContent } from './components/AppContent';
+import { Users } from './components/Users';
+import { Count } from "./components/Count";
+
 function App() {
   return (
       <>
-        <AppContent />
-        <Button />
+          <Count/>
+          <Users/>
+          <AppContent/>
+          <Button/>
       </>
   );
 }
