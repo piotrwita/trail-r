@@ -10,7 +10,6 @@ export function Users() {
                     </div>
                 );
             })}
-            {true ? <div>True</div> : <div>False</div>}
         </div>
     )
 }
