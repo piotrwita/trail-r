@@ -1,17 +1,20 @@
 import { tasks as tasksData }  from '../data/tasks';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export function TasksList() {
     const [tasks, setTasks] = useState(tasksData);
-    const handleAddTask = (title: string) => {
+    const titleRef = useRef<HTMLInputElement | null>(null);
+    const descriptionRef = useRef<HTMLInputElement | null>(null);
+    const handleAddTask = () => {
         const newTasks = [...tasks];
         newTasks.push({
-            title: title,
-            description: 'desc8',
+            title: titleRef.current?.value ?? '',
+            description: descriptionRef.current?.value ?? '',
             completed: false
         })
         setTasks(newTasks);
         console.log(tasks);
+        console.log(titleRef);
     };
     const handleToggleTaskState = (index: number) => {
         const newTasks = [...tasks];
@@ -26,19 +29,22 @@ export function TasksList() {
 
     return (
         <>
-            <button onClick={() => handleAddTask('new added task')}>Add new task</button>
-            { tasks.length === 0 ? (
+            <input type='text' id='title' ref={titleRef}/>
+            <input type='text' id='description' ref={descriptionRef}/>
+            <button onClick={handleAddTask}>Add new task</button>
+            {tasks.length === 0 ? (
                 <div>Empty tasks list.</div>
-                ) : (
-            <ul>
-                {tasks.map(({title, completed}, index) => (
-                    <li key={index} style={{textDecoration: completed ? 'line-through' : 'none'}}>
-                        {title}
-                        <button onClick={() => handleDeleteTask(index)}>Delete</button>
-                        <button onClick={() => handleToggleTaskState(index)}>{completed ? 'Undo' : 'Complete'}</button>
-                    </li>
-                ))}
-            </ul>
+            ) : (
+                <ul>
+                    {tasks.map(({title, description, completed}, index) => (
+                        <li key={index} style={{textDecoration: completed ? 'line-through' : 'none'}}>
+                            {title} {description}
+                            <button onClick={() => handleDeleteTask(index)}>Delete</button>
+                            <button
+                                onClick={() => handleToggleTaskState(index)}>{completed ? 'Undo' : 'Complete'}</button>
+                        </li>
+                    ))}
+                </ul>
             )}
         </>
     )
