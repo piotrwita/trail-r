@@ -5,10 +5,12 @@ import { Users } from './components/Users';
 import { Count } from './components/Count';
 import { TasksList } from './components/TasksList';
 import { Counter } from './components/Counter';
+import { RequestApi } from './components/ReqestApi';
 
 function App() {
   return (
       <>
+          <RequestApi/>
           <Counter/>
           <TasksList/>
           <Count/>
