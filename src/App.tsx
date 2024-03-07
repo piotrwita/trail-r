@@ -6,10 +6,11 @@ import { Count } from './components/Count';
 import { TasksList } from './components/TasksList';
 import { Counter } from './components/Counter';
 import { RequestApi } from './components/ReqestApi';
-
+import { Add } from './components/Add';
 function App() {
   return (
       <>
+          <Add/>
           <RequestApi/>
           <Counter/>
           <TasksList/>
