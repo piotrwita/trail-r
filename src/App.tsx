@@ -7,9 +7,13 @@ import { TasksList } from './components/TasksList';
 import { Counter } from './components/Counter';
 import { RequestApi } from './components/ReqestApi';
 import { Add } from './components/Add';
+import { Variables } from './components/Variables';
+import {Form} from './components/Form';
 function App() {
   return (
       <>
+          <Form/>
+          <Variables/>
           <Add/>
           <RequestApi/>
           <Counter/>
