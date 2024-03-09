@@ -1,35 +1,51 @@
-import {useRef, useState} from "react";
-import {tasks as tasksData} from "../data/tasks";
+import { useState} from 'react';
 
 export function Form() {
-    const temptasks : string[] = [
-        'wyrzuc smieci',
-        'nakarm',
-        'silka'
+
+    const [inputValue, setInputValue] = useState<{
+        name: string;
+        done: boolean;
+    }>({
+        name: '',
+        done: false
+    });
+
+
+    const tasks: {
+        name: string;
+        done: boolean;
+    }[] = [
+        {
+            name:'wyrzuc smieci',
+            done: false
+        },{
+            name:'nakarm',
+            done: false
+        },{
+            name:'silka',
+            done: true
+        }
     ];
 
-    const [tasks, setTasks] = useState(temptasks);
 
-
-    tasks.push('kolejnarzecz');
-    const taskRef = useRef<HTMLInputElement | null>(null);
-    const handleTaskAdd = (name:string) => {
-        //event.preventDefault();
-        tasks.push(name);
-        setTasks(tasks);
-    };
+    const handleTaskAdd = (task:{
+        name: string;
+        done: boolean;
+        }) => {
+            tasks.push({name: task.name, done: task.done});
+        };
 
     return (
         <form className='container' autoComplete='off'>
             <label htmlFor='name'>Task:</label>
-            <input type='text' id='name' ref={taskRef}></input>
-            <button onClick={()=> handleTaskAdd(taskRef.current?.value ?? 'a')}>Add</button>
+            <input type='text' id='name' value={inputValue.name} ></input>
+            <button onClick={()=> handleTaskAdd(inputValue)}>Add</button>
             <p>Todolits</p>
             <ul className='tasks'>
-                    {tasks.map((name, index) => (
+                    {tasks.map((task, index) => (
                         <li key={index}>
-                            <label htmlFor={name}>{name}</label>
-                            <input type='checkbox' id={name} name={name}></input>
+                            <label>{task.name}</label>
+                            <input type='checkbox'>{task.done}</input>
                         </li>
             ))}
 
