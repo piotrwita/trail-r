@@ -1,56 +1,66 @@
-import { useState} from 'react';
+import React, { useState} from 'react';
 
+interface Task {
+    id: number;
+    text: string;
+    checked: boolean;
+}
 export function Form() {
 
-    const [inputValue, setInputValue] = useState<{
-        name: string;
-        done: boolean;
-    }>({
-        name: '',
-        done: false
-    });
+    const [inputValue, setInputValue] = useState<string>('');
+    const [tasks, setTasks] = useState<Task[]>([]);
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
+    };
 
-    const tasks: {
-        name: string;
-        done: boolean;
-    }[] = [
-        {
-            name:'wyrzuc smieci',
-            done: false
-        },{
-            name:'nakarm',
-            done: false
-        },{
-            name:'silka',
-            done: true
-        }
-    ];
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!inputValue.trim()) return;
 
-
-    const handleTaskAdd = (task:{
-        name: string;
-        done: boolean;
-        }) => {
-            tasks.push({name: task.name, done: task.done});
+        const newTask: Task = {
+            id: Date.now(),
+            text: inputValue,
+            checked: false,
         };
 
-    return (
-        <form className='container' autoComplete='off'>
-            <label htmlFor='name'>Task:</label>
-            <input type='text' id='name' value={inputValue.name} ></input>
-            <button onClick={()=> handleTaskAdd(inputValue)}>Add</button>
-            <p>Todolits</p>
-            <ul className='tasks'>
-                    {tasks.map((task, index) => (
-                        <li key={index}>
-                            <label>{task.name}</label>
-                            <input type='checkbox'>{task.done}</input>
-                        </li>
-            ))}
+        setTasks([...tasks, newTask]);
+        setInputValue('');
+    };
 
-        </ul>
-</form>
-)
+    const handleCheckboxChange = (id: number) => {
+        setTasks(tasks.map(task => {
+            if (task.id === id) {
+                return { ...task, checked: !task.checked };
+            }
+            return task;
+        }));
+    };
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder='Enter label text'
+                />
+                <button type='submit'>Add Label</button>
+            </form>
+            <ul>
+                {tasks.map(task => (
+                    <li key={task.id}>
+                        <input
+                            type='checkbox'
+                            checked={task.checked}
+                            onChange={() => handleCheckboxChange(task.id)}
+                        />
+                        <label>{task.text}</label>
+                    </li>
+                ))}
+            </ul>
+        </>
+    )
 
 }

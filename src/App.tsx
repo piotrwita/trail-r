@@ -13,7 +13,7 @@ function App() {
   return (
       <>
           <Form/>
-          <Variables/>
+          {/*<Variables/>
           <Add/>
           <RequestApi/>
           <Counter/>
@@ -21,7 +21,7 @@ function App() {
           <Count/>
           <Users/>
           <AppContent/>
-          <Button/>
+          <Button/>*/}
       </>
   );
 }
