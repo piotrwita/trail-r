@@ -1,15 +1,23 @@
-import React, { useState} from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
 interface Task {
     id: number;
     text: string;
     checked: boolean;
-    category?: 'general'|'gym'|'work';
+    category?: Category;//
 }
+
+type Category = 'general'|'gym'|'work';
+
 export function Form() {
 
-    const categories: string[] = ['general','gym','work']
+    const categories : Category[] = ['general','gym','work'];
 
+    const [selectedCategory , setSelectedCategory] = useState('general');
+
+    const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSelectedCategory(event.target.value);
+    };
 
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -26,7 +34,7 @@ export function Form() {
             id: Date.now(),
             text: inputValue,
             checked: false,
-            category: 'general'
+            category: selectedCategory as Category
         };
 
         setTasks([...tasks, newTask]);
@@ -57,10 +65,20 @@ export function Form() {
                         <input type='radio'
                                name='category'
                                value='general'
-                               id='category-general'/>
+                               id='category-general'
+                               checked={selectedCategory === 'general'}
+                               onChange={handleOptionChange}/>
                         <label htmlFor='category-general'>general</label>
+                        <input type='radio'
+                               name='category'
+                               value='gym'
+                               id='category-gym'
+                               checked={selectedCategory === 'gym'}
+                               onChange={handleOptionChange}/>
+                        <label htmlFor='category-general'>gym</label>
                     </li>
                 </ul>
+                <p>Selected option: {selectedCategory}</p>
                 <button type='submit'>Add Label</button>
             </form>
             <ul>
@@ -72,6 +90,7 @@ export function Form() {
                             onChange={() => handleCheckboxChange(task.id)}
                         />
                         <label>{task.text}</label>
+                        <label>{task.category}</label>
                     </li>
                 ))}
             </ul>
