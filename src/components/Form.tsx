@@ -1,13 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
-
-interface Task {
-    id: number;
-    text: string;
-    checked: boolean;
-    category?: Category;//
-}
-
-type Category = 'general'|'gym'|'work';
+import {Category, Task} from "../types/types";
 
 export function Form() {
 
@@ -62,20 +54,17 @@ export function Form() {
                 />
                 <ul className='categories'>
                     <li>
-                        <input type='radio'
-                               name='category'
-                               value='general'
-                               id='category-general'
-                               checked={selectedCategory === 'general'}
-                               onChange={handleOptionChange}/>
-                        <label htmlFor='category-general'>general</label>
-                        <input type='radio'
-                               name='category'
-                               value='gym'
-                               id='category-gym'
-                               checked={selectedCategory === 'gym'}
-                               onChange={handleOptionChange}/>
-                        <label htmlFor='category-general'>gym</label>
+                        {categories.map(category => (
+                            <>
+                                <input type='radio'
+                                       name='category'
+                                       value={category}
+                                       id={`category-${category}`}
+                                       checked={selectedCategory === category}
+                                       onChange={handleOptionChange}/>
+                                <label htmlFor={`category-${category}`}>{category}</label>
+                            </>
+                            ))}
                     </li>
                 </ul>
                 <p>Selected option: {selectedCategory}</p>
