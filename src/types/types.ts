@@ -5,4 +5,10 @@ export interface Task {
     category?: Category;//
 }
 
-export type Category = 'general'|'gym'|'work';
+export type Category = CategoryOfTask.GENERAL|CategoryOfTask.GYM|CategoryOfTask.WORK;
+
+export enum CategoryOfTask {
+    GENERAL='general',
+    GYM='gym',
+    WORK='work'
+}

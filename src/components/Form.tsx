@@ -1,9 +1,11 @@
 import React, { useState, ChangeEvent } from 'react';
-import {Category, Task} from "../types/types";
+import {Category, Task,CategoryOfTask} from "../types/types";
 
 export function Form() {
 
-    const categories : Category[] = ['general','gym','work'];
+
+
+    const categories : Category[] = [CategoryOfTask.GENERAL,CategoryOfTask.GYM,CategoryOfTask.WORK];
 
     const [selectedCategory , setSelectedCategory] = useState('general');
 
