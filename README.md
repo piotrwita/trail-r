@@ -1,3 +1,8 @@
+projekt powinien zawierać.
+dodawanie daily
+dodawanie trasy jaki plik gtx
+wyswietlanie mapy
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
