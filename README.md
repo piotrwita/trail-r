@@ -3,6 +3,7 @@ dodawanie daily
 dodawanie trasy jaki plik gtx
 wyswietlanie mapy
 trip po czechcha
+dzis już powrót, etorek zeiastuje kolejna dawkę nauki. stracilem dżokera przez ten wyjazd. 🔨
 
 # Getting Started with Create React App
 
