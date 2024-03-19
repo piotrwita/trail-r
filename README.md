@@ -1,3 +1,10 @@
+projekt powinien zawierać.
+dodawanie daily
+dodawanie trasy jaki plik gtx
+wyswietlanie mapy
+trip po czechcha
+dzis już powrót, etorek zeiastuje kolejna dawkę nauki. stracilem dżokera przez ten wyjazd. 🔨
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
