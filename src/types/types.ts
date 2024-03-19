@@ -12,3 +12,20 @@ export enum CategoryOfTask {
     GYM='gym',
     WORK='work'
 }
+
+export type TaskType = {
+    id: number;
+    text: string;
+    checked: boolean;
+    category?: Category;
+}
+export interface TaskInterface {
+    id: number;
+    text: string;
+    checked: boolean;
+    category?: Category;
+}
+
+export interface TaskInterface {
+    createAt: Date;
+}
