@@ -1,7 +1,12 @@
-export class TaskClass {
+
+export interface Logger{
+    logCreationDate: () => void;
+}
+
+export class TaskClass implements Logger {
     name: string = "nowe zadanie";
     done: boolean = true;
-    createAt: Date = new Date();
+    private createAt: Date = new Date();
 
     constructor(name: string, done: boolean) {
         this.name = name;
