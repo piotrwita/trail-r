@@ -4,6 +4,8 @@ dodawanie trasy jaki plik gtx
 wyswietlanie mapy
 trip po czechcha
 dzis już powrót, etorek zeiastuje kolejna dawkę nauki. stracilem dżokera przez ten wyjazd. 🔨
+nadgodzinki w pracy i brak czasu na projekcik
+dzis nie bedzie bo melo z krisem jutro nadrobie jak nie bede sprzatac 
 
 # Getting Started with Create React App
 
