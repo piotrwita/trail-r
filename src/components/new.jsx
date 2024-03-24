@@ -1,0 +1,1 @@
+export const elementInJsx = <h1 href='https://google.com'>Google</h1>
