@@ -18,7 +18,8 @@ export function Variables() {
         <>
             <p>{test}</p>
             <p>{calculate(10, urlParam)}</p>
+            <p>{crypto.randomUUID}</p>
             <p>{urlParam ? 'true' : 'false'}</p>
-        </>
+        </p>
     )
 }
