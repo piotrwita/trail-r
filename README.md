@@ -9,6 +9,7 @@ dzis nie bedzie bo melo z krisem jutro nadrobie jak nie bede sprzatac
 ogarnianie ranchera
 integracja
 eventhandlery
+zm
 
 # Getting Started with Create React App
 
