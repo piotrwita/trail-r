@@ -8,7 +8,7 @@ nadgodzinki w pracy i brak czasu na projekcik
 dzis nie bedzie bo melo z krisem jutro nadrobie jak nie bede sprzatac 
 ogarnianie ranchera
 integracja
-eventhandlerya
+eventhandleryaa
 
 # Getting Started with Create React App
 
