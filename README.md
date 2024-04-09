@@ -1,5 +1,5 @@
 projekt powinien zawierać.
-dodawanie daily
+dodawanie dailya
 dodawanie trasy jaki plik gtx
 wyswietlanie mapy
 trip po czechcha
